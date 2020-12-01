@@ -1,11 +1,13 @@
-import { combineReducers, Reducer } from "redux"
-import { reducer as home } from "./home"
-
+import {combineReducers, Reducer} from 'redux';
+import {reducer as pokemon} from './pokemon';
+import {reducer as loader} from './loader';
 export interface ApplicationState {
-  home: any;
+  pokemon: any;
+  loader: any;
 }
 
-export const createRootReducer: Function = (): Reducer => 
+export const createRootReducer: Function = (): Reducer =>
   combineReducers<ApplicationState>({
-    home
-  })
+    pokemon,
+    loader
+  });
