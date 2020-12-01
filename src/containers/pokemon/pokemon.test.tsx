@@ -32,7 +32,7 @@ describe('Pokemon list container', () => {
     expect(queryAllByTestId('pokemon-item').length).toBe(2)
   })
 
-  it('Shouldn´t render any pokemon ', () => {
+  it('Shouldn´t render any pokemon', () => {
     const { queryAllByTestId } = renderWithState(<Pokemon />);
     expect(queryAllByTestId('pokemon-item').length).toBe(0)
   })

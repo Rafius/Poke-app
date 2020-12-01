@@ -6,9 +6,7 @@ import Loader from "../components/loader"
 const Routes: FC = () => (
   <BrowserRouter>
 		<Switch>
-      {routesConfig.map((route: routeModel)=>
-				<Route {...route} key={route.key} />
-      )}
+      {routesConfig.map((route: routeModel)=> <Route exact {...route} key={route.key} />)}
 			<Redirect to="/" />
 		</Switch>
 		<Loader />

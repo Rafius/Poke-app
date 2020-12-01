@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from "react-router-dom"
 
 export const PokemonsContainer = styled.div`
   display: flex;
@@ -8,7 +9,7 @@ export const PokemonsContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const PokemonContainer = styled.div`
+export const PokemonContainer = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +19,7 @@ export const PokemonContainer = styled.div`
   margin: 20px;
   height: 200px;
   cursor: pointer;
+  text-decoration: none;
 `;
 
 export const Img = styled.img`

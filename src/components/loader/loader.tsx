@@ -9,7 +9,7 @@ const LoaderComponent = () => {
   if (!isLoading) return null;
 
   return (
-    <LoaderContainer>
+    <LoaderContainer data-testid="loader-container">
       <Loader
         type="TailSpin"
         color="#00BFFF"

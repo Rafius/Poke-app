@@ -1,11 +1,16 @@
-import { createSelector } from 'reselect';
-import { ApplicationState } from '../reducer';
-import { PokemonReqPayload, PokemonSprites } from './pokemon-types';
+import {createSelector} from 'reselect';
+import {ApplicationState} from '../reducer';
+import {PokemonReqPayload, PokemonSprites} from './pokemon-types';
 
 export const pokemonSelector = (state: ApplicationState) =>
   state.pokemon?.sort(
-    (a: { id: number }, b: { id: number }) => a.id - b.id
+    (a: {id: number}, b: {id: number}) => a.id - b.id
   );
+
+export const pokemonByIdSelector = (
+  state: ApplicationState,
+  id: number
+) => pokemonSelector(state)[id];
 
 export const pokemonAbilitiesSelector = createSelector(
   [pokemonSelector],

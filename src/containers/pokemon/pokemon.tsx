@@ -16,13 +16,14 @@ const Pokemon = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if(pokemons.length) return
     dispatch(getPokemonStart({ count: 25 }));
-  }, [dispatch]);
+  }, [dispatch, pokemons]);
 
   return (
     <PokemonsContainer data-testid="pokemon-container">
       {pokemons?.map(({ height, name, sprites, id }: any) => (
-        <PokemonContainer key={id} data-testid="pokemon-item">
+        <PokemonContainer key={id} data-testid="pokemon-item" to={`/pokemon-details/${id}`}>
           <Img alt="loading" src={sprites?.front_default}></Img>
           <PokemonDetails>
             <div>name: {name}</div>

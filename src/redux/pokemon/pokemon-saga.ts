@@ -19,8 +19,6 @@ function* getPokemon({count}: PokemonSagaPayload) {
         })
       )
     );
-
-    console.log(response);
     yield put(getPokemonSuccess(response));
   } catch (e) {
     console.log(e);

@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react"
-import React, { FunctionComponent } from "react"
+import React from "react"
 import { Provider } from "react-redux"
 import { createStore, Store } from "redux"
 import { createRootReducer } from "../redux/reducer"
