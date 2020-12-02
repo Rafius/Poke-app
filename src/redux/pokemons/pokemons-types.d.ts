@@ -1,7 +1,18 @@
 export interface PokemonTypes {
   readonly type: string;
   readonly payload?: any;
-  readonly count?: number;
+  readonly id?: number;
+}
+
+export interface PokemonsTypes {
+  data: PokemonsReqPayload[];
+  currentPokemon: PokemonReqPayload;
+  filter: string;
+}
+
+export interface PokemonsReqPayload {
+  name: string;
+  url: string;
 }
 
 export interface PokemonReqPayload {
@@ -24,5 +35,6 @@ export interface PokemonReqPayload {
 }
 
 export interface PokemonSprites {
+  front_default: string;
   back_default: string;
 }

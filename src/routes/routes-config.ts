@@ -1,4 +1,4 @@
-import Pokemon from '../containers/pokemon';
+import Pokemon from '../containers/pokemons';
 import PokemonDetails from '../containers/pokemon-details';
 
 export interface routeModel {

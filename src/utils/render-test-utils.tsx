@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react"
 import React from "react"
 import { Provider } from "react-redux"
+import { BrowserRouter } from "react-router-dom"
 import { createStore, Store } from "redux"
 import { createRootReducer } from "../redux/reducer"
 
@@ -14,7 +15,9 @@ const renderComponent = (
   initReactApp()
   return(
     <Provider store={store}>
-      {Component}
+      <BrowserRouter>
+        {Component}
+      </BrowserRouter>
     </Provider>
   )
 }

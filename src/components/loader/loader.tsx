@@ -19,4 +19,5 @@ const LoaderComponent = () => {
     </LoaderContainer>
   );
 };
+
 export default LoaderComponent;

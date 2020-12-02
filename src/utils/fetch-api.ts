@@ -23,7 +23,7 @@ export const fetchApi = (
     new Promise((_, reject) =>
       setTimeout(
         () => reject(new Error('fetchApi timeout error')),
-        5000
+        20000
       )
     )
   ]);

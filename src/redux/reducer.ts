@@ -1,13 +1,13 @@
 import {combineReducers, Reducer} from 'redux';
-import {reducer as pokemon} from './pokemon';
+import {reducer as pokemons} from './pokemons';
 import {reducer as loader} from './loader';
 export interface ApplicationState {
-  pokemon: any;
+  pokemons: any;
   loader: any;
 }
 
 export const createRootReducer: Function = (): Reducer =>
   combineReducers<ApplicationState>({
-    pokemon,
+    pokemons,
     loader
   });
