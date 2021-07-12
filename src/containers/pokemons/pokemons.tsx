@@ -11,10 +11,11 @@ import {
   PokemonsContainer,
   PokemonsList,
   PokemonContainer,
-  Img,
-} from './pokemons.styled';
+  Img
+} from './Pokemons.styled';
 
 const Pokemon = () => {
+
   const pokemons:  PokemonsReqPayload[] = useSelector(pokemonsDataSelector);
 
   const dispatch = useDispatch();
@@ -25,18 +26,31 @@ const Pokemon = () => {
 
   const getId = (url: string) => url.split("/")[6]
 
+
   return (
     <PokemonsContainer data-testid="pokemon-container">
       <Filter />
       <PokemonsList>
-        {pokemons.map(({ name, url }: PokemonsReqPayload, id:number) => (
-          <PokemonContainer key={id} data-testid="pokemon-item" to={`/pokemon-details/${getId(url)}`} >
-            <div>
-            <Img alt="loading" src={`https://pokeres.bastionbot.org/images/pokemon/${getId(url)}.png`}></Img>
-              {name.toUpperCase()}
-            </div>
-          </PokemonContainer>
-      ))}
+        {pokemons.map(
+          ({ name, url }: PokemonsReqPayload, id: number) => (
+            <PokemonContainer
+              key={id}
+              data-testid="pokemon-item"
+              to={`/pokemon-details/${getId(url)}`}
+            >
+              <div>
+                <Img
+                  loading="lazy"
+                  alt="loading"
+                  src={`https://pokeres.bastionbot.org/images/pokemon/${getId(
+                    url
+                  )}.png`}
+                />
+                {name.toUpperCase()}
+              </div>
+            </PokemonContainer>
+          )
+        )}
       </PokemonsList>
     </PokemonsContainer>
   );

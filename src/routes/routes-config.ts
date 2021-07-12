@@ -1,9 +1,10 @@
-import Pokemon from '../containers/pokemons';
-import PokemonDetails from '../containers/pokemon-details';
+import Pokemon from '../containers/Pokemons';
+import PokemonDetails from '../containers/PokemonDetails';
+import Product from '../containers/Product';
 
 export interface routeModel {
   key: number;
-  path?: any;
+  path: any;
   component: any;
 }
 
@@ -17,6 +18,11 @@ const RoutesConfig: routeModel[] = [
     key: 1,
     path: '/pokemon-details/:id',
     component: PokemonDetails
+  },
+  {
+    key: 2,
+    path: '/product',
+    component: Product
   }
 ];
 
