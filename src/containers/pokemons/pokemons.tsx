@@ -40,16 +40,14 @@ const Pokemon = () => {
               data-testid="pokemon-item"
               to={`/pokemon-details/${getId(url)}`}
             >
-              <div>
-                <Img
-                  loading="lazy"
-                  alt="loading"
-                  src={`https://pokeres.bastionbot.org/images/pokemon/${getId(
-                    url
-                  )}.png`}
-                />
-                {name.toUpperCase()}
-              </div>
+              <Img
+                loading="lazy"
+                alt="loading"
+                src={`https://pokeres.bastionbot.org/images/pokemon/${getId(
+                  url
+                )}.png`}
+              />
+              {name.toUpperCase()}
             </PokemonContainer>
           )
         )}

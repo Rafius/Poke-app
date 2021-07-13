@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const PokemonsContainer = styled.div`
   display: flex;
@@ -7,14 +8,13 @@ export const PokemonsContainer = styled.div`
   align-items: center;
 `;
 
-
 export const PokemonsList = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-`
+`;
 
 export const PokemonContainer = styled(Link)`
   display: flex;
@@ -23,16 +23,15 @@ export const PokemonContainer = styled(Link)`
   border: 2px solid grey;
   border-radius: 5px;
   margin: 20px;
-  max-width: 250px;
-  max-height: 300px;
+  width: 250px;
+  height: 300px;
   cursor: pointer;
   text-decoration: none;
-  color:black;
+  color: black;
   text-align: center;
 `;
 
-export const Img = styled.img`
+export const Img = styled(LazyLoadImage)`
   width: 100%;
   background-color: #ebecf0;
 `;
-

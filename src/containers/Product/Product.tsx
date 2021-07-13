@@ -19,7 +19,13 @@ export interface ProductType {
 
 const Product = () => {
   const products: ProductType[] = useGetProducts();
-  const { removeProduct } = useRemoveProducts();
+  const removeProduct = useRemoveProducts();
+
+  const handleRemoveItem = (id: number) => {
+    removeProduct({
+      variables: { id }
+    });
+  };
 
   return (
     <ProductsContainer>
@@ -31,13 +37,7 @@ const Product = () => {
               Product quantity: {quantity}
             </ProductQuantity>
           </ProductItem>
-          <RemoveProduct
-            onClick={() => {
-              removeProduct({
-                variables: { id }
-              });
-            }}
-          >
+          <RemoveProduct onClick={() => handleRemoveItem(id)}>
             X
           </RemoveProduct>
         </ProductContainer>

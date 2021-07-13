@@ -6,25 +6,19 @@ import {
 } from './ProductQueries';
 
 export const useGetProducts = () => {
-  const { data } = useQuery(GetProductsQuery, {
-    fetchPolicy: 'network-only',
-    nextFetchPolicy: 'network-only'
-  });
+  const { data } = useQuery(GetProductsQuery);
 
   return data?.products || [];
 };
 
 export const useRemoveProducts = () => {
-  const [removeProduct, { data: removedData }] = useMutation(
-    RemoveProductQuery,
-    {
-      refetchQueries: () => [
-        {
-          query: GetProductsQuery
-        }
-      ]
-    }
-  );
+  const [removeProduct] = useMutation(RemoveProductQuery, {
+    refetchQueries: () => [
+      {
+        query: GetProductsQuery
+      }
+    ]
+  });
 
-  return { removeProduct, removedData };
+  return removeProduct;
 };
