@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import Filter from "../../components/filter"
+import Filter from '../../components/filter';
 import {
   getPokemonsStart,
-  pokemonsDataSelector,
+  pokemonsDataSelector
 } from '../../redux/pokemons';
 import { PokemonsReqPayload } from '../../redux/pokemons/pokemons-types';
 import {
@@ -15,8 +16,9 @@ import {
 } from './Pokemons.styled';
 
 const Pokemon = () => {
-
-  const pokemons:  PokemonsReqPayload[] = useSelector(pokemonsDataSelector);
+  const pokemons: PokemonsReqPayload[] = useSelector(
+    pokemonsDataSelector
+  );
 
   const dispatch = useDispatch();
 
@@ -24,11 +26,11 @@ const Pokemon = () => {
     dispatch(getPokemonsStart());
   }, [dispatch]);
 
-  const getId = (url: string) => url.split("/")[6]
-
+  const getId = (url: string) => url.split('/')[6];
 
   return (
     <PokemonsContainer data-testid="pokemon-container">
+      <Link to="product">List of Products with graphql</Link>
       <Filter />
       <PokemonsList>
         {pokemons.map(
