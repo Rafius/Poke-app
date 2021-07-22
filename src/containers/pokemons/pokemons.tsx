@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import Filter from '../../components/filter';
 import {
@@ -12,7 +11,9 @@ import {
   PokemonsContainer,
   PokemonsList,
   PokemonContainer,
-  Img
+  Img,
+  PokemonName,
+  Products
 } from './Pokemons.styled';
 
 const Pokemon = () => {
@@ -30,7 +31,7 @@ const Pokemon = () => {
 
   return (
     <PokemonsContainer data-testid="pokemon-container">
-      <Link to="product">List of Products with graphql</Link>
+      <Products to="product">List of Products with graphql</Products>
       <Filter />
       <PokemonsList>
         {pokemons.map(
@@ -47,7 +48,7 @@ const Pokemon = () => {
                   url
                 )}.png`}
               />
-              {name.toUpperCase()}
+              <PokemonName>{name.toUpperCase()}</PokemonName>
             </PokemonContainer>
           )
         )}

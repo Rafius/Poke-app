@@ -9,4 +9,4 @@ export const PokemonsDetailsContainer = styled.div`
 
 export const PokemonTypes = styled.div`
   display: flex;
-`
+`;

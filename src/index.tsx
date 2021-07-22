@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from  "react-redux"
-import configureStore from "./redux/store"
-import Routes from './routes';
+import { Provider } from 'react-redux';
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider
 } from '@apollo/client';
+
+import configureStore from './redux/store';
+import Routes from './routes';
 
 const client = new ApolloClient({
   uri: 'http://localhost:3001/graphql',
@@ -16,7 +17,7 @@ const client = new ApolloClient({
   })
 });
 
-const store = configureStore()
+const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>

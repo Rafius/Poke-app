@@ -1,4 +1,4 @@
-import {call, put, takeEvery} from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import fetchApi from '../../utils/fetch-api';
 import {
   getPokemonByIdFail,
@@ -8,8 +8,8 @@ import {
   GET_POKEMONS_START,
   GET_POKEMON_BY_ID_START
 } from './pokemons-actions';
-import {hideLoader, showLoader} from '../loader/loader-actions';
-import {PokemonsReqPayload} from './pokemons-types';
+import { hideLoader, showLoader } from '../loader/loader-actions';
+import { PokemonsReqPayload } from './pokemons-types';
 
 export interface PokemonSagaPayload {
   id: number;
@@ -34,9 +34,12 @@ function* getPokemons() {
   }
 }
 
-function* getPokemonById({id}: PokemonSagaPayload) {
+function* getPokemonById({ id }: PokemonSagaPayload) {
   try {
     yield put(showLoader());
+    const a: [] = [];
+
+    a.flat();
     const response: PokemonsReqPayload = yield call(
       fetchApi,
       `https://pokeapi.co/api/v2/pokemon/${id}`,

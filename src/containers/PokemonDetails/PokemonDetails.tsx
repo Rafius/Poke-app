@@ -30,8 +30,8 @@ const PokemonDetails = () => {
       <BackButton />
       <div>
         Types:
-        {types?.map(({ type }: any) => (
-          <PokemonTypes>{type.name}</PokemonTypes>
+        {types?.map(({ type, slot }: any) => (
+          <PokemonTypes key={slot}>{type.name}</PokemonTypes>
         ))}
       </div>
       <div>name: {name}</div>

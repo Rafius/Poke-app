@@ -27,11 +27,21 @@ export const PokemonContainer = styled(Link)`
   height: 300px;
   cursor: pointer;
   text-decoration: none;
-  color: black;
   text-align: center;
+  color: inherit;
 `;
 
 export const Img = styled(LazyLoadImage)`
   width: 100%;
   background-color: #ebecf0;
+`;
+
+export const PokemonName = styled.div`
+  margin: 15px;
+`;
+
+export const Products = styled(Link)`
+  color: red;
+  text-decoration: none;
+  padding: 10px;
 `;

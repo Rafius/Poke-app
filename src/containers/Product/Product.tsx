@@ -30,7 +30,7 @@ const Product = () => {
   return (
     <ProductsContainer>
       {products?.map(({ name, quantity, id }: ProductType) => (
-        <ProductContainer>
+        <ProductContainer key={id}>
           <ProductItem>
             <ProductName>Product name: {name}</ProductName>
             <ProductQuantity>
