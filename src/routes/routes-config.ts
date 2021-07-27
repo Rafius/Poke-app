@@ -1,4 +1,4 @@
-import Pokemon from '../containers/Pokemons';
+import Pokemons from '../containers/Pokemons';
 import PokemonDetails from '../containers/PokemonDetails';
 import Product from '../containers/Product';
 
@@ -12,7 +12,7 @@ const RoutesConfig: routeModel[] = [
   {
     key: 0,
     path: '/',
-    component: Pokemon
+    component: Pokemons
   },
   {
     key: 1,

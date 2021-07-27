@@ -16,7 +16,7 @@ import {
   Products
 } from './Pokemons.styled';
 
-const Pokemon = () => {
+const Pokemons = () => {
   const pokemons: PokemonsReqPayload[] = useSelector(
     pokemonsDataSelector
   );
@@ -57,4 +57,4 @@ const Pokemon = () => {
   );
 };
 
-export default Pokemon;
+export default Pokemons;
