@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
+import BackButton from '../../components/back-button';
 import {
   ProductsContainer,
   ProductContainer,
@@ -29,6 +30,8 @@ const Product = () => {
 
   return (
     <ProductsContainer>
+      <BackButton />
+
       {products?.map(({ name, quantity, id }: ProductType) => (
         <ProductContainer key={id}>
           <ProductItem>

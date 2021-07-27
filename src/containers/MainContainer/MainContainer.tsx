@@ -11,7 +11,9 @@ const MainContainer = ({ children }: any) => {
   return (
     <ThemeProvider theme={darkTheme ? dark : light}>
       <GlobalStyles />
-      <button onClick={themeToggler}>Change Theme</button>
+      <button onClick={themeToggler}>
+        {darkTheme ? 'Light' : 'Dark'} Theme
+      </button>
       {children}
     </ThemeProvider>
   );

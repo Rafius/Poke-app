@@ -12,8 +12,7 @@ import {
   PokemonsList,
   PokemonContainer,
   Img,
-  PokemonName,
-  Products
+  PokemonName
 } from './Pokemons.styled';
 
 const Pokemons = () => {
@@ -31,7 +30,6 @@ const Pokemons = () => {
 
   return (
     <PokemonsContainer data-testid="pokemon-container">
-      <Products to="product">List of Products with graphql</Products>
       <Filter />
       <PokemonsList>
         {pokemons.map(

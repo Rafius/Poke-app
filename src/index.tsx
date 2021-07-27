@@ -11,7 +11,7 @@ import configureStore from './redux/store';
 import Routes from './routes';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
+  uri: 'https://product-graphql-api.herokuapp.com/graphql',
   cache: new InMemoryCache({
     addTypename: false
   })

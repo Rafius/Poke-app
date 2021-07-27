@@ -8,10 +8,39 @@ import {
   pokemonsCurrentPokemonSelector
 } from '../../redux/pokemons';
 import {
-  PokemonsDetailsContainer,
-  PokemonTypes
+  PokemonDetailsContainer,
+  PokemonDetailsBox,
+  PokemonDetailsName,
+  PokemonDetailsDescription,
+  PokemonDetailsHeight,
+  PokemonDetailsWeight,
+  PokemonDetailsId,
+  PokemonDetailsImagesContainer,
+  PokemonDetailsImage,
+  PokemonDetailsTypesContainer,
+  PokemonDetailsType
 } from './PokemonDetails.styled';
 
+const PokemonTypeDictionary: any = {
+  normal: '#A8A77A',
+  fire: '#ee8130',
+  water: '#6390f0',
+  electric: '#f7d02c',
+  grass: '#7ac74c',
+  ice: '#96d9d6',
+  fighting: '#c22e28',
+  poison: '#a33ea1',
+  ground: '#e2bf65',
+  flying: '#a98ff3',
+  psychic: '#f95587',
+  bug: '#a6b91a',
+  rock: '#b6a136',
+  ghost: '#735797',
+  dragon: '#6f35fc',
+  dark: '#705746',
+  steel: '#b7b7ce',
+  fairy: '#d685ad'
+};
 const PokemonDetails = () => {
   const { id }: any = useParams();
   const dispatch = useDispatch();
@@ -23,22 +52,47 @@ const PokemonDetails = () => {
   }, [dispatch, id]);
 
   if (isLoading) return null;
-  const { height, types, sprites, name } = pokemon;
+  const { weight, height, sprites, name, types } = pokemon;
 
   return (
-    <PokemonsDetailsContainer data-testid="pokemon-details-container">
+    <PokemonDetailsContainer>
       <BackButton />
-      <div>
-        Types:
-        {types?.map(({ type, slot }: any) => (
-          <PokemonTypes key={slot}>{type.name}</PokemonTypes>
-        ))}
-      </div>
-      <div>name: {name}</div>
-      <div>height: {height}</div>
-      <img alt="loading" src={sprites?.front_default}></img>
-      <img alt="loading" src={sprites?.back_default}></img>
-    </PokemonsDetailsContainer>
+      <PokemonDetailsBox data-testid="pokemon-details-container">
+        <PokemonDetailsName>{name}</PokemonDetailsName>
+        <PokemonDetailsDescription>
+          <PokemonDetailsId>Id: {id}</PokemonDetailsId>
+          <PokemonDetailsHeight>
+            Height: {height}
+          </PokemonDetailsHeight>
+          <PokemonDetailsWeight>
+            Weight: {weight}
+          </PokemonDetailsWeight>
+          <PokemonDetailsImagesContainer>
+            <PokemonDetailsImage
+              loading="lazy"
+              alt="loading"
+              src={sprites?.front_default}
+            ></PokemonDetailsImage>
+            <PokemonDetailsImage
+              loading="lazy"
+              alt="loading"
+              src={sprites?.back_default}
+            ></PokemonDetailsImage>
+          </PokemonDetailsImagesContainer>
+
+          <PokemonDetailsTypesContainer>
+            {types?.map(({ type, slot }: any) => (
+              <PokemonDetailsType
+                color={PokemonTypeDictionary[type.name]}
+                key={slot}
+              >
+                {type.name}
+              </PokemonDetailsType>
+            ))}
+          </PokemonDetailsTypesContainer>
+        </PokemonDetailsDescription>
+      </PokemonDetailsBox>
+    </PokemonDetailsContainer>
   );
 };
 
