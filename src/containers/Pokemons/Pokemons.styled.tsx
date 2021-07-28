@@ -23,8 +23,7 @@ export const PokemonContainer = styled(Link)`
   border: 2px solid grey;
   border-radius: 5px;
   margin: 20px;
-  width: 250px;
-  height: 300px;
+  width: 300px;
   cursor: pointer;
   text-decoration: none;
   text-align: center;
@@ -38,10 +37,4 @@ export const Img = styled(LazyLoadImage)`
 
 export const PokemonName = styled.div`
   margin: 15px;
-`;
-
-export const Products = styled(Link)`
-  color: red;
-  text-decoration: none;
-  padding: 10px;
 `;

@@ -20,7 +20,7 @@ function* getPokemons() {
     yield put(showLoader());
     const response = yield call(
       fetchApi,
-      'https://pokeapi.co/api/v2/pokemon?limit=100',
+      'https://pokeapi.co/api/v2/pokemon?limit=898',
       {
         method: 'GET'
       }

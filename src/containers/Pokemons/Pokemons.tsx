@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Filter from '../../components/filter';
+import Filter from '../../components/Filter';
 import {
   getPokemonsStart,
   pokemonsDataSelector
@@ -15,6 +15,8 @@ import {
   PokemonName
 } from './Pokemons.styled';
 
+const getPokemonId = (id: string) => id.padStart(3, '000');
+
 const Pokemons = () => {
   const pokemons: PokemonsReqPayload[] = useSelector(
     pokemonsDataSelector
@@ -26,30 +28,26 @@ const Pokemons = () => {
     dispatch(getPokemonsStart());
   }, [dispatch]);
 
-  const getId = (url: string) => url.split('/')[6];
-
   return (
     <PokemonsContainer data-testid="pokemon-container">
       <Filter />
       <PokemonsList>
-        {pokemons.map(
-          ({ name, url }: PokemonsReqPayload, id: number) => (
-            <PokemonContainer
-              key={id}
-              data-testid="pokemon-item"
-              to={`/pokemon-details/${getId(url)}`}
-            >
-              <Img
-                loading="lazy"
-                alt="loading"
-                src={`https://pokeres.bastionbot.org/images/pokemon/${getId(
-                  url
-                )}.png`}
-              />
-              <PokemonName>{name.toUpperCase()}</PokemonName>
-            </PokemonContainer>
-          )
-        )}
+        {pokemons.map(({ name }: PokemonsReqPayload, id: number) => (
+          <PokemonContainer
+            key={id}
+            data-testid="pokemon-item"
+            to={`/pokemon-details/${id + 1}`}
+          >
+            <Img
+              loading="lazy"
+              alt="loading"
+              src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${getPokemonId(
+                (id + 1).toString()
+              )}.png`}
+            />
+            <PokemonName>{name.toUpperCase()}</PokemonName>
+          </PokemonContainer>
+        ))}
       </PokemonsList>
     </PokemonsContainer>
   );

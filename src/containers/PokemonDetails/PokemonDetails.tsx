@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import BackButton from '../../components/back-button';
 import { isLoadingSelector } from '../../redux/loader/loader-selectors';
 import {
   getPokemonByIdStart,
@@ -20,6 +19,7 @@ import {
   PokemonDetailsTypesContainer,
   PokemonDetailsType
 } from './PokemonDetails.styled';
+import PokemonDetailsButtons from './PokemonDetailsButtons';
 
 const PokemonTypeDictionary: any = {
   normal: '#A8A77A',
@@ -42,7 +42,8 @@ const PokemonTypeDictionary: any = {
   fairy: '#d685ad'
 };
 const PokemonDetails = () => {
-  const { id }: any = useParams();
+  const params: any = useParams();
+  const id = parseInt(params.id);
   const dispatch = useDispatch();
   const pokemon: any = useSelector(pokemonsCurrentPokemonSelector);
   const isLoading: string = useSelector(isLoadingSelector);
@@ -56,7 +57,7 @@ const PokemonDetails = () => {
 
   return (
     <PokemonDetailsContainer>
-      <BackButton />
+      <PokemonDetailsButtons id={id} />
       <PokemonDetailsBox data-testid="pokemon-details-container">
         <PokemonDetailsName>{name}</PokemonDetailsName>
         <PokemonDetailsDescription>

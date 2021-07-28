@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const PokemonDetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 300px;
+  margin: auto;
 `;
 
 export const PokemonDetailsBox = styled.div`

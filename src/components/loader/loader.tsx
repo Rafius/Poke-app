@@ -1,8 +1,8 @@
 import React from 'react';
-import Loader from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
 import { isLoadingSelector } from '../../redux/loader/loader-selectors';
-import { LoaderContainer } from './loader.styled';
+import { LoaderContainer } from './Loader.styled';
+import loader from './loader.gif';
 
 const LoaderComponent = () => {
   const isLoading = useSelector(isLoadingSelector);
@@ -10,12 +10,7 @@ const LoaderComponent = () => {
 
   return (
     <LoaderContainer data-testid="loader-container">
-      <Loader
-        type="TailSpin"
-        color="#00BFFF"
-        height={100}
-        width={100}
-      />
+      <img src={loader} loading="lazy" alt="loading..." />
     </LoaderContainer>
   );
 };
