@@ -4,18 +4,20 @@ import Filter from '../../components/Filter';
 import { PokemonsReqPayload } from '../../redux/pokemons/pokemons-types';
 import { PokemonsContainer, PokemonsList } from './Pokemons.styled';
 import PokemonCard from './PokemonCard';
-import usePokemonsHook from './PokemonsHook';
+import usePokemons from './PokemonsHooks';
 
 const Pokemons = () => {
-  const { pokemons } = usePokemonsHook();
+  const { pokemons } = usePokemons();
 
   return (
     <PokemonsContainer data-testid="pokemon-container">
       <Filter />
       <PokemonsList>
-        {pokemons.map(({ name }: PokemonsReqPayload, id: number) => (
-          <PokemonCard name={name} key={id} id={id} />
-        ))}
+        {pokemons.map(
+          ({ name, url }: PokemonsReqPayload, id: number) => (
+            <PokemonCard name={name} id={id} key={id} url={url} />
+          )
+        )}
       </PokemonsList>
     </PokemonsContainer>
   );

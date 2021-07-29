@@ -6,8 +6,8 @@ export const LoaderContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+`;
 
-  img {
-    border-radius: 50%;
-  }
+export const LoaderImage = styled.img`
+  border-radius: 50%;
 `;

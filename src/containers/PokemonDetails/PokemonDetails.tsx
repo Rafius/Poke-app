@@ -1,11 +1,4 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { isLoadingSelector } from '../../redux/loader/loader-selectors';
-import {
-  getPokemonByIdStart,
-  pokemonsCurrentPokemonSelector
-} from '../../redux/pokemons';
+import React from 'react';
 import {
   PokemonDetailsContainer,
   PokemonDetailsBox,
@@ -20,40 +13,13 @@ import {
   PokemonDetailsType
 } from './PokemonDetails.styled';
 import PokemonDetailsButtons from './PokemonDetailsButtons';
+import usePokemonDetails from './PokemonDetailsHooks';
 
-const PokemonTypeDictionary: any = {
-  normal: '#A8A77A',
-  fire: '#ee8130',
-  water: '#6390f0',
-  electric: '#f7d02c',
-  grass: '#7ac74c',
-  ice: '#96d9d6',
-  fighting: '#c22e28',
-  poison: '#a33ea1',
-  ground: '#e2bf65',
-  flying: '#a98ff3',
-  psychic: '#f95587',
-  bug: '#a6b91a',
-  rock: '#b6a136',
-  ghost: '#735797',
-  dragon: '#6f35fc',
-  dark: '#705746',
-  steel: '#b7b7ce',
-  fairy: '#d685ad'
-};
 const PokemonDetails = () => {
-  const params: any = useParams();
-  const id = parseInt(params.id);
-  const dispatch = useDispatch();
-  const pokemon: any = useSelector(pokemonsCurrentPokemonSelector);
-  const isLoading: string = useSelector(isLoadingSelector);
-
-  useEffect(() => {
-    dispatch(getPokemonByIdStart(id));
-  }, [dispatch, id]);
+  const { id, name, height, weight, sprites, types, isLoading } =
+    usePokemonDetails();
 
   if (isLoading) return null;
-  const { weight, height, sprites, name, types } = pokemon;
 
   return (
     <PokemonDetailsContainer>
@@ -83,10 +49,7 @@ const PokemonDetails = () => {
 
           <PokemonDetailsTypesContainer>
             {types?.map(({ type, slot }: any) => (
-              <PokemonDetailsType
-                color={PokemonTypeDictionary[type.name]}
-                key={slot}
-              >
+              <PokemonDetailsType color={type.name} key={slot}>
                 {type.name}
               </PokemonDetailsType>
             ))}

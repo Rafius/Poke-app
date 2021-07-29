@@ -8,11 +8,14 @@ import {
 interface PokemonCardTypes {
   name: string;
   id: number;
+  key: number;
+  url: string;
 }
 
-const getPokemonId = (id: string) => id.padStart(3, '000');
+const getPokemonId = (url: string) =>
+  url.split('/')[6].padStart(3, '000');
 
-const PokemonCard = ({ name, id }: PokemonCardTypes) => (
+const PokemonCard = ({ name, id, url }: PokemonCardTypes) => (
   <PokemonCardContainer
     key={id}
     data-testid="pokemon-item"
@@ -22,7 +25,7 @@ const PokemonCard = ({ name, id }: PokemonCardTypes) => (
       loading="lazy"
       alt="loading"
       src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${getPokemonId(
-        (id + 1).toString()
+        url
       )}.png`}
     />
     <PokemonCardName>{name.toUpperCase()}</PokemonCardName>

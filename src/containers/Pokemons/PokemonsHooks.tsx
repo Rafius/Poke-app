@@ -6,7 +6,7 @@ import {
 } from '../../redux/pokemons';
 import { PokemonsReqPayload } from '../../redux/pokemons/pokemons-types';
 
-const usePokemonsHook = () => {
+const usePokemons = () => {
   const pokemons: PokemonsReqPayload[] = useSelector(
     pokemonsDataSelector
   );
@@ -14,10 +14,10 @@ const usePokemonsHook = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPokemonsStart());
-  }, [dispatch]);
+    if (!pokemons.length) dispatch(getPokemonsStart());
+  }, [dispatch, pokemons]);
 
   return { pokemons };
 };
 
-export default usePokemonsHook;
+export default usePokemons;
