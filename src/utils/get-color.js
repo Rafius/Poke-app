@@ -30,7 +30,6 @@ const getTextColor = (color) => {
     green: colorToRgb[1] / 255,
     blue: colorToRgb[2] / 255
   };
-  console.log(entry);
   const result = network.run(entry);
 
   console.log(result);

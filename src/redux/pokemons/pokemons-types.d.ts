@@ -38,8 +38,14 @@ export interface PokemonReqPayload {
   order: number;
   species: object;
   sprites: PokemonSprites;
-  types: [];
+  types: PokemonTypes[];
   weight: number;
+}
+
+export interface PokemonTypes {
+  type: {
+    name: string;
+  };
 }
 
 export interface PokemonSprites {

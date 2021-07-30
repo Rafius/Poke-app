@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Loader from '../../components/Loader';
-import getColor from '../../utils/get-color';
 import {
   PokemonDetailsContainer,
   PokemonDetailsBox,
@@ -13,30 +12,33 @@ import {
   PokemonDetailsImagesContainer,
   PokemonDetailsImage,
   PokemonDetailsTypesContainer,
-  PokemonDetailsType,
-  PokemonTypeDictionary
+  PokemonDetailsType
 } from './PokemonDetails.styled';
 import PokemonDetailsButtons from './PokemonDetailsButtons';
 import usePokemonDetails from './PokemonDetailsHooks';
 
 const PokemonDetails = () => {
-  const { id, name, height, weight, sprites, types, isLoading } =
-    usePokemonDetails();
+  const {
+    id,
+    name,
+    height,
+    weight,
+    sprites,
+    types,
+    isLoading,
+    textColor,
+    getFirstType
+  } = usePokemonDetails();
 
   if (isLoading) return <Loader isLoading={isLoading} />;
 
-  const handleGetTextColor = (name: string) => {
-    if (name) return getColor(PokemonTypeDictionary[name]);
-  };
-
-  const getFirstType = types?.length && types[0].type.name;
   return (
     <PokemonDetailsContainer>
       <PokemonDetailsButtons id={id} />
       <PokemonDetailsBox data-testid="pokemon-details-container">
         <PokemonDetailsName
           backgroundColor={getFirstType}
-          color={handleGetTextColor(getFirstType)}
+          color={textColor(getFirstType)}
         >
           {name?.toUpperCase()}
         </PokemonDetailsName>
@@ -65,7 +67,7 @@ const PokemonDetails = () => {
             {types?.map(({ type, slot }: any) => (
               <PokemonDetailsType
                 backgroundColor={type.name}
-                color={handleGetTextColor(type.name)}
+                color={textColor(type.name)}
                 key={slot}
               >
                 {type.name}
