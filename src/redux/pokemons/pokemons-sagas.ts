@@ -1,12 +1,12 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import fetchApi from '../../utils/fetch-api';
 import {
   getPokemonByIdFail,
   getPokemonByIdSuccess,
   getPokemonsFail,
   getPokemonsSuccess,
-  GET_POKEMONS_START,
-  GET_POKEMON_BY_ID_START
+  GET_POKEMONS,
+  GET_POKEMON_BY_ID
 } from './pokemons-actions';
 import { hideLoader, showLoader } from '../loader/loader-actions';
 import { PokemonsReqPayload } from './pokemons-types';
@@ -57,7 +57,7 @@ function* getPokemonById({ id }: PokemonSagaPayload) {
 }
 
 export default function* pokemonSaga() {
-  yield takeEvery(GET_POKEMONS_START, getPokemons);
+  yield takeLatest(GET_POKEMONS, getPokemons);
   // @ts-ignore
-  yield takeEvery(GET_POKEMON_BY_ID_START, getPokemonById);
+  yield takeLatest(GET_POKEMON_BY_ID, getPokemonById);
 }

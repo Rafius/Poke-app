@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { isLoadingSelector } from '../../redux/loader/loader-selectors';
 import {
-  getPokemonByIdStart,
+  getPokemonById,
   pokemonsCurrentPokemonSelector
 } from '../../redux/pokemons';
 
@@ -15,7 +15,7 @@ const usePokemonDetails = () => {
   const isLoading: string = useSelector(isLoadingSelector);
 
   useEffect(() => {
-    dispatch(getPokemonByIdStart(id));
+    dispatch(getPokemonById(id));
   }, [dispatch, id]);
 
   return { ...pokemon, isLoading, id };

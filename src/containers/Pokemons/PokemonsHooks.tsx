@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  getPokemonsStart,
+  getPokemons,
   pokemonsDataSelector
 } from '../../redux/pokemons';
 import { PokemonsReqPayload } from '../../redux/pokemons/pokemons-types';
@@ -14,7 +14,7 @@ const usePokemons = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!pokemons.length) dispatch(getPokemonsStart());
+    if (!pokemons.length) dispatch(getPokemons());
   }, [dispatch, pokemons]);
 
   return { pokemons };

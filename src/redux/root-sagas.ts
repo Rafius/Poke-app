@@ -1,7 +1,7 @@
-import {all, fork} from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 
-import pokemons from './pokemons/pokemons-saga';
+import { pokemonsSagas } from './pokemons';
 
 export default function* rootSaga() {
-  yield all([fork(pokemons)]);
+  yield all([fork(pokemonsSagas)]);
 }

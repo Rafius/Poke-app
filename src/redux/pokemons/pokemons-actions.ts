@@ -1,10 +1,9 @@
-import {PokemonTypes} from './pokemons-types';
+import { PokemonTypes } from './pokemons-types';
 
-export const GET_POKEMONS_START: string = 'GET_POKEMONS_START';
+export const GET_POKEMONS: string = 'GET_POKEMONS';
 export const GET_POKEMONS_SUCCESS: string = 'GET_POKEMONS_SUCCESS';
 export const GET_POKEMONS_FAIL: string = 'GET_POKEMONS_FAIL';
-export const GET_POKEMON_BY_ID_START: string =
-  'GET_POKEMON_BY_ID_START';
+export const GET_POKEMON_BY_ID: string = 'GET_POKEMON_BY_ID';
 export const GET_POKEMON_BY_ID_SUCCESS: string =
   'GET_POKEMON_BY_ID_SUCCESS';
 export const GET_POKEMON_BY_ID_FAIL: string =
@@ -14,8 +13,8 @@ export const FILTER_POKEMONS_BY_NAME: string =
 export const CLEAN_FILTER_POKEMONS_BY_NAME: string =
   'CLEAN_FILTER_POKEMONS_BY_NAME';
 
-export const getPokemonsStart = () => ({
-  type: GET_POKEMONS_START
+export const getPokemons = () => ({
+  type: GET_POKEMONS
 });
 
 export const getPokemonsSuccess = (payload: any): PokemonTypes => ({
@@ -28,8 +27,8 @@ export const getPokemonsFail = (payload: any): PokemonTypes => ({
   payload
 });
 
-export const getPokemonByIdStart = (id: any): PokemonTypes => ({
-  type: GET_POKEMON_BY_ID_START,
+export const getPokemonById = (id: any): PokemonTypes => ({
+  type: GET_POKEMON_BY_ID,
   id
 });
 
