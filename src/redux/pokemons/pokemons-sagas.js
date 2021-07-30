@@ -10,14 +10,10 @@ import {
   GET_POKEMON_BY_ID,
   GET_POKEMON_EVOLUTIONS_BY_ID
 } from './pokemons-actions';
-import { PokemonsReqPayload } from './pokemons-types';
 
-export interface PokemonSagaPayload {
-  id: number;
-}
 function* getPokemons() {
   try {
-    const response: PokemonsReqPayload = yield call(
+    const response = yield call(
       fetchApi,
       'https://pokeapi.co/api/v2/pokemon?limit=898',
       {
@@ -30,9 +26,9 @@ function* getPokemons() {
   }
 }
 
-function* getPokemonById({ id }: PokemonSagaPayload) {
+function* getPokemonById({ id }) {
   try {
-    const response: PokemonsReqPayload = yield call(
+    const response = yield call(
       fetchApi,
       `https://pokeapi.co/api/v2/pokemon/${id}`,
       {
@@ -44,7 +40,7 @@ function* getPokemonById({ id }: PokemonSagaPayload) {
     yield put(getPokemonByIdFail(e));
   }
 }
-const parseEvolutionResponse = (chain: any) => {
+const parseEvolutionResponse = (chain) => {
   const evoChain = [];
   let evoData = chain;
 
@@ -62,9 +58,9 @@ const parseEvolutionResponse = (chain: any) => {
   return evoChain;
 };
 
-function* getPokemonEvolutionsById({ id }: PokemonSagaPayload) {
+function* getPokemonEvolutionsById({ id }) {
   try {
-    const response: any = yield call(
+    const response = yield call(
       fetchApi,
       `https://pokeapi.co/api/v2/evolution-chain/${id}`,
       {
@@ -79,11 +75,8 @@ function* getPokemonEvolutionsById({ id }: PokemonSagaPayload) {
 }
 
 export default function* pokemonSaga() {
-  // @ts-ignore
   yield takeLatest(GET_POKEMONS, getPokemons);
-  // @ts-ignore
   yield takeLatest(GET_POKEMON_BY_ID, getPokemonById);
-  // @ts-ignore
   yield takeLatest(
     GET_POKEMON_EVOLUTIONS_BY_ID,
     getPokemonEvolutionsById

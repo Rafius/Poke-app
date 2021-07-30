@@ -6,7 +6,6 @@ import {
   Route
 } from 'react-router-dom';
 import routesConfig, { routeModel } from './routes-config';
-import Loader from '../components/Loader';
 import MainContainer from '../containers/MainContainer';
 
 const Routes: FC = () => (
@@ -18,7 +17,6 @@ const Routes: FC = () => (
         ))}
         <Redirect to="/" />
       </Switch>
-      <Loader />
     </MainContainer>
   </BrowserRouter>
 );

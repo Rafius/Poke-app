@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const PokemonCardContainer = styled(Link)`
   display: flex;
@@ -17,7 +16,7 @@ export const PokemonCardContainer = styled(Link)`
   color: inherit;
 `;
 
-export const PokemonCardImg = styled(LazyLoadImage)`
+export const PokemonCardImg = styled.img`
   width: 100%;
   background-color: #ebecf0;
 `;

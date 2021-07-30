@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Main, HomeButton } from './MainContainer.styled';
+import { HeaderContainer, HomeButton } from './Header.styled';
 import pokeball from './pokeball.png';
 
-const MainContainer = ({ children }: any) => {
+const Header = () => {
   return (
-    <Main>
+    <HeaderContainer>
       <Link to="/">
         <HomeButton src={pokeball} loading="lazy" alt="loading..." />
       </Link>
-      {children}
-    </Main>
+    </HeaderContainer>
   );
 };
 
-export default MainContainer;
+export default Header;
