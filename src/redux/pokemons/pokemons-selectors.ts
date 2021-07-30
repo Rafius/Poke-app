@@ -10,7 +10,7 @@ export const pokemonsDataSelector = createSelector(
   (pokemons: PokemonsTypes) =>
     pokemons.filter
       ? pokemons.data.filter((pokemon: any) =>
-          pokemon.name.includes(pokemons.filter)
+          pokemon.name.includes(pokemons.filter.toLowerCase())
         )
       : pokemons.data
 );

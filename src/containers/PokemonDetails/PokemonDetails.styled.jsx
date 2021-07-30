@@ -47,8 +47,10 @@ export const PokemonDetailsName = styled.div`
   align-items: center;
   height: 50px;
   width: 100%;
-  background-color: #dbbfd1;
   border-bottom: 1px solid grey;
+  background-color: ${({ backgroundColor }) =>
+    PokemonTypeDictionary[backgroundColor]};
+  color: ${({ color }) => color};
 `;
 export const PokemonDetailsDescription = styled.div`
   display: flex;
@@ -63,14 +65,18 @@ export const PokemonDetailsTypesContainer = styled.div`
 export const PokemonDetailsType = styled.div`
   background-color: ${({ backgroundColor }) =>
     PokemonTypeDictionary[backgroundColor]};
+  color: ${({ color }) => color};
   border-radius: 3px;
   padding: 10px;
-  color: ${({ color }) => color};
   border-radius: 5px;
   text-align: center;
   text-transform: none;
   width: 45%;
   margin: 0 5px;
+
+  &:first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 export const PokemonDetailsHeight = styled.div``;

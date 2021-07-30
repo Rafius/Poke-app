@@ -25,14 +25,21 @@ const PokemonDetails = () => {
 
   if (isLoading) return <Loader isLoading={isLoading} />;
 
-  const handleGetTextColor = ({ name }) =>
-    getColor(PokemonTypeDictionary[name]);
+  const handleGetTextColor = (name: string) => {
+    if (name) return getColor(PokemonTypeDictionary[name]);
+  };
 
+  const getFirstType = types?.length && types[0].type.name;
   return (
     <PokemonDetailsContainer>
       <PokemonDetailsButtons id={id} />
       <PokemonDetailsBox data-testid="pokemon-details-container">
-        <PokemonDetailsName>{name}</PokemonDetailsName>
+        <PokemonDetailsName
+          backgroundColor={getFirstType}
+          color={handleGetTextColor(getFirstType)}
+        >
+          {name?.toUpperCase()}
+        </PokemonDetailsName>
         <PokemonDetailsDescription>
           <PokemonDetailsId>Id: {id}</PokemonDetailsId>
           <PokemonDetailsHeight>
@@ -58,7 +65,7 @@ const PokemonDetails = () => {
             {types?.map(({ type, slot }: any) => (
               <PokemonDetailsType
                 backgroundColor={type.name}
-                color={handleGetTextColor({ ...type })}
+                color={handleGetTextColor(type.name)}
                 key={slot}
               >
                 {type.name}
