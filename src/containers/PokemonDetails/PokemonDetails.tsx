@@ -1,4 +1,5 @@
 import React from 'react';
+import Loader from '../../components/Loader';
 import {
   PokemonDetailsContainer,
   PokemonDetailsBox,
@@ -19,7 +20,7 @@ const PokemonDetails = () => {
   const { id, name, height, weight, sprites, types, isLoading } =
     usePokemonDetails();
 
-  if (isLoading) return null;
+  if (isLoading) return <Loader isLoading={isLoading} />;
 
   return (
     <PokemonDetailsContainer>

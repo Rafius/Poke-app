@@ -3,22 +3,21 @@ import styled from 'styled-components';
 
 export const PokemonDetailsButtonsContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
 const commonButton = styled(Link)`
   text-decoration: none;
-  margin-right: 10px;
   border: 1px solid grey;
   border-radius: 3px;
-  background-color: #a4a4a4;
   cursor: pointer;
   text-decoration: none;
-  color: white;
+  color: black;
   padding: 10px;
   pointer-events: ${({ disabled }) => disabled && 'none'};
-  background-color: ${({ disabled }) =>
-    disabled ? '#a4a4a4' : 'lightblue'};
+  background-color: ${({ disabled }) => disabled && '#a4a4a4'};
+  width: 30px;
+  text-align: center;
 `;
 
 export const PreviousPokemon = styled(commonButton)``;

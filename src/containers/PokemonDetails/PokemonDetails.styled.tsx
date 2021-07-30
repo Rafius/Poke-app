@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const PokemonTypeDictionary: any = {
+const PokemonTypeDictionary = {
   normal: '#A8A77A',
   fire: '#ee8130',
   water: '#6390f0',
@@ -65,6 +65,11 @@ export const PokemonDetailsType = styled.div`
   border-radius: 3px;
   padding: 10px;
   color: white;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: none;
+  width: 45%;
+  margin: 0 5px;
 `;
 
 export const PokemonDetailsHeight = styled.div``;

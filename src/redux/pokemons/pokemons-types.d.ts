@@ -8,11 +8,19 @@ export interface PokemonsTypes {
   data: PokemonsReqPayload[];
   currentPokemon: PokemonReqPayload;
   filter: string;
+  evolutions: PokemonsEvolutions[];
+  isLoading: boolean;
 }
 
 export interface PokemonsReqPayload {
   name: string;
   url: string;
+}
+
+export interface PokemonsEvolutions {
+  species_name: string;
+  url: string;
+  min_level: number;
 }
 
 export interface PokemonReqPayload {

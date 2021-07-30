@@ -15,13 +15,13 @@ const PokemonDetailsButtons = ({ id }) => {
         to={`/pokemon-details/${id - 1}`}
         disabled={!shouldShowPreviousPokemon}
       >
-        Previous
+        #{id - 1}
       </PreviousPokemon>
       <NextPokemon
         to={`/pokemon-details/${id + 1}`}
         disabled={!shouldShowNextPokemon}
       >
-        Next
+        #{id + 1}
       </NextPokemon>
     </PokemonDetailsButtonsContainer>
   );

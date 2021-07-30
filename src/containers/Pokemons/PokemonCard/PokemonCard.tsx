@@ -7,19 +7,16 @@ import {
 
 interface PokemonCardTypes {
   name: string;
-  id: number;
-  key: number;
   url: string;
 }
 
 const getPokemonId = (url: string) =>
   url.split('/')[6].padStart(3, '000');
 
-const PokemonCard = ({ name, id, url }: PokemonCardTypes) => (
+const PokemonCard = ({ name, url }: PokemonCardTypes) => (
   <PokemonCardContainer
-    key={id}
     data-testid="pokemon-item"
-    to={`/pokemon-details/${id + 1}`}
+    to={`/pokemon-details/${url.split('/')[6]}`}
   >
     <PokemonCardImg
       loading="lazy"

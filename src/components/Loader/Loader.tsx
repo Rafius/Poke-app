@@ -1,11 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { isLoadingSelector } from '../../redux/loader/loader-selectors';
 import { LoaderContainer, LoaderImage } from './Loader.styled';
 import loader from './loader.gif';
 
-const LoaderComponent = () => {
-  const isLoading = useSelector(isLoadingSelector);
+type LoaderType = {
+  isLoading: boolean;
+};
+
+const Loader = ({ isLoading }: LoaderType) => {
   if (!isLoading) return null;
 
   return (
@@ -15,4 +16,4 @@ const LoaderComponent = () => {
   );
 };
 
-export default LoaderComponent;
+export default Loader;
