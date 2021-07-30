@@ -36,7 +36,6 @@ const usePokemonDetails = () => {
   const isLoading: boolean = useSelector(pokemonsIsLoadingSelector);
 
   const textColor = (name: string) => {
-    console.log(name);
     if (name) return getColor(PokemonTypeDictionary[name]);
   };
 
