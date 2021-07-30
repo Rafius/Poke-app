@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const PokemonsContainer = styled.div`
   display: flex;
@@ -30,7 +29,7 @@ export const PokemonContainer = styled(Link)`
   color: inherit;
 `;
 
-export const Img = styled(LazyLoadImage)`
+export const Img = styled.img`
   width: 100%;
   background-color: #ebecf0;
 `;

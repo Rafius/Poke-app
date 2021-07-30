@@ -76,4 +76,7 @@ export const PokemonDetailsHeight = styled.div``;
 export const PokemonDetailsWeight = styled.div``;
 export const PokemonDetailsId = styled.div``;
 export const PokemonDetailsImagesContainer = styled.div``;
-export const PokemonDetailsImage = styled.img``;
+export const PokemonDetailsImage = styled.img`
+  width: 100px;
+  height: 100px;
+`;
