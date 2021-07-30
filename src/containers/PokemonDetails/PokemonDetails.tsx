@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Loader from '../../components/Loader';
+import getColor from '../../utils/get-color';
 import {
   PokemonDetailsContainer,
   PokemonDetailsBox,
@@ -11,7 +13,8 @@ import {
   PokemonDetailsImagesContainer,
   PokemonDetailsImage,
   PokemonDetailsTypesContainer,
-  PokemonDetailsType
+  PokemonDetailsType,
+  PokemonTypeDictionary
 } from './PokemonDetails.styled';
 import PokemonDetailsButtons from './PokemonDetailsButtons';
 import usePokemonDetails from './PokemonDetailsHooks';
@@ -21,6 +24,9 @@ const PokemonDetails = () => {
     usePokemonDetails();
 
   if (isLoading) return <Loader isLoading={isLoading} />;
+
+  const handleGetTextColor = ({ name }) =>
+    getColor(PokemonTypeDictionary[name]);
 
   return (
     <PokemonDetailsContainer>
@@ -50,7 +56,11 @@ const PokemonDetails = () => {
 
           <PokemonDetailsTypesContainer>
             {types?.map(({ type, slot }: any) => (
-              <PokemonDetailsType color={type.name} key={slot}>
+              <PokemonDetailsType
+                backgroundColor={type.name}
+                color={handleGetTextColor({ ...type })}
+                key={slot}
+              >
                 {type.name}
               </PokemonDetailsType>
             ))}

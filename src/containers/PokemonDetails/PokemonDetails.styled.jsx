@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const PokemonTypeDictionary = {
+export const PokemonTypeDictionary: any = {
   normal: '#A8A77A',
   fire: '#ee8130',
   water: '#6390f0',
@@ -61,10 +61,11 @@ export const PokemonDetailsTypesContainer = styled.div`
   justify-content: space-between;
 `;
 export const PokemonDetailsType = styled.div`
-  background-color: ${({ color }) => PokemonTypeDictionary[color]};
+  background-color: ${({ backgroundColor }) =>
+    PokemonTypeDictionary[backgroundColor]};
   border-radius: 3px;
   padding: 10px;
-  color: white;
+  color: ${({ color }) => color};
   border-radius: 5px;
   text-align: center;
   text-transform: none;

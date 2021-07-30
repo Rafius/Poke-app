@@ -1,5 +1,4 @@
 import React from 'react';
-import brain from 'brain.js/src';
 import Filter from '../../components/Filter';
 import { PokemonsReqPayload } from '../../redux/pokemons/pokemons-types';
 import { PokemonsContainer, PokemonsList } from './Pokemons.styled';
@@ -12,8 +11,6 @@ const Pokemons = () => {
 
   if (isLoading) return <Loader isLoading={isLoading} />;
 
-  const test = new brain.NeuralNetwork();
-  debugger;
   return (
     <PokemonsContainer data-testid="pokemon-container">
       <Filter />
