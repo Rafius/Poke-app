@@ -6,10 +6,7 @@ export const PokemonDetailsButtonsContainer = styled.div`
   justify-content: space-between;
 `;
 
-interface Test {
-  disabled: boolean;
-}
-const commonButton: Test = styled(Link)`
+const commonButton = styled(Link)`
   text-decoration: none;
   border: 1px solid grey;
   border-radius: 3px;
