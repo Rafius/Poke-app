@@ -1,19 +1,15 @@
 import React from 'react';
+import { Result } from '../../../redux/pokemons/pokemons-types';
 import {
   PokemonCardContainer,
   PokemonCardImg,
   PokemonCardName
 } from './PokemonCard.styled';
 
-interface PokemonCardTypes {
-  name: string;
-  url: string;
-}
-
 const getPokemonId = (url: string) =>
   url.split('/')[6].padStart(3, '000');
 
-const PokemonCard = ({ name, url }: PokemonCardTypes) => (
+const PokemonCard = ({ name, url }: Result) => (
   <PokemonCardContainer
     data-testid="pokemon-item"
     to={`/pokemon-details/${url.split('/')[6]}`}

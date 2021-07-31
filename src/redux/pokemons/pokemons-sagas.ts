@@ -10,10 +10,16 @@ import {
   GET_POKEMON_BY_ID,
   GET_POKEMON_EVOLUTIONS_BY_ID
 } from './pokemons-actions';
+import {
+  Chain,
+  Pokemon,
+  PokemonEvolution,
+  PokemonsList
+} from './pokemons-types';
 
 function* getPokemons() {
   try {
-    const response = yield call(
+    const response: PokemonsList = yield call(
       fetchApi,
       'https://pokeapi.co/api/v2/pokemon?limit=898',
       {
@@ -26,9 +32,9 @@ function* getPokemons() {
   }
 }
 
-function* getPokemonById({ id }) {
+function* getPokemonById({ id }: Pokemon) {
   try {
-    const response = yield call(
+    const response: Pokemon = yield call(
       fetchApi,
       `https://pokeapi.co/api/v2/pokemon/${id}`,
       {
@@ -40,7 +46,7 @@ function* getPokemonById({ id }) {
     yield put(getPokemonByIdFail(e));
   }
 }
-const parseEvolutionResponse = (chain) => {
+const parseEvolutionResponse = (chain: Chain) => {
   const evoChain = [];
   let evoData = chain;
 
@@ -58,9 +64,9 @@ const parseEvolutionResponse = (chain) => {
   return evoChain;
 };
 
-function* getPokemonEvolutionsById({ id }) {
+function* getPokemonEvolutionsById({ id }: PokemonEvolution) {
   try {
-    const response = yield call(
+    const response: PokemonEvolution = yield call(
       fetchApi,
       `https://pokeapi.co/api/v2/evolution-chain/${id}`,
       {

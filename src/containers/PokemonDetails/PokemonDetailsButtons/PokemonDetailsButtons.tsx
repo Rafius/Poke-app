@@ -1,4 +1,5 @@
 import React from 'react';
+import { Pokemon } from '../../../redux/pokemons/pokemons-types';
 
 import {
   PokemonDetailsButtonsContainer,
@@ -6,9 +7,9 @@ import {
   NextPokemon
 } from './PokemonDetailsButtons.styled';
 
-const PokemonDetailsButtons = ({ id }) => {
-  const shouldShowPreviousPokemon = id > 1;
-  const shouldShowNextPokemon = id < 898;
+const PokemonDetailsButtons = ({ id }: Pokemon) => {
+  const shouldShowPreviousPokemon: boolean = id > 1;
+  const shouldShowNextPokemon: boolean = id < 898;
   return (
     <PokemonDetailsButtonsContainer>
       <PreviousPokemon

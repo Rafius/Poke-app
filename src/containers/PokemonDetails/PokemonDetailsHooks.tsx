@@ -8,12 +8,12 @@ import {
   getPokemonEvolutionsById,
   pokemonsEvolutionsSelector
 } from '../../redux/pokemons';
-import {
-  PokemonReqPayload,
-  PokemonsEvolutions
-} from '../../redux/pokemons/pokemons-types';
 import { PokemonTypeDictionary } from './PokemonDetails.styled';
 import getColor from '../../utils/get-color';
+import {
+  Pokemon,
+  PokemonEvolutions
+} from '../../redux/pokemons/pokemons-types';
 
 const usePokemonDetails = () => {
   const params: any = useParams();
@@ -25,11 +25,11 @@ const usePokemonDetails = () => {
     dispatch(getPokemonEvolutionsById(id));
   }, [dispatch, id]);
 
-  const pokemon: PokemonReqPayload = useSelector(
+  const pokemon: Pokemon = useSelector(
     pokemonsCurrentPokemonSelector
   );
 
-  const evolutions: PokemonsEvolutions[] = useSelector(
+  const evolutions: PokemonEvolutions = useSelector(
     pokemonsEvolutionsSelector
   );
 
@@ -39,7 +39,7 @@ const usePokemonDetails = () => {
     if (name) return getColor(PokemonTypeDictionary[name]);
   };
 
-  const getFirstType: string =
+  const getFirstType: string | 0 =
     pokemon.types?.length && pokemon.types[0].type.name;
 
   return {
