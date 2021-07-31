@@ -11,19 +11,20 @@ const hexToRgb = (hex) => {
   return null;
 };
 
+const network = new brain.NeuralNetwork();
+network.train([
+  { input: { red: 0, green: 0, blue: 0 }, output: { color: 1 } },
+  { input: { red: 1, green: 1, blue: 1 }, output: { color: 0 } },
+  { input: { red: 0, green: 1, blue: 0 }, output: { color: 0 } },
+  {
+    input: { red: 0, green: 0.43, blue: 1 },
+    output: { color: 1 }
+  },
+  { input: { red: 1, green: 0, blue: 0 }, output: { color: 1 } }
+]);
+
 const getTextColor = (color) => {
   const colorToRgb = hexToRgb(color);
-  const network = new brain.NeuralNetwork();
-  network.train([
-    { input: { red: 0, green: 0, blue: 0 }, output: { color: 1 } },
-    { input: { red: 1, green: 1, blue: 1 }, output: { color: 0 } },
-    { input: { red: 0, green: 1, blue: 0 }, output: { color: 0 } },
-    {
-      input: { red: 0, green: 0.43, blue: 1 },
-      output: { color: 1 }
-    },
-    { input: { red: 1, green: 0, blue: 0 }, output: { color: 1 } }
-  ]);
 
   const entry = {
     red: colorToRgb[0] / 255,
