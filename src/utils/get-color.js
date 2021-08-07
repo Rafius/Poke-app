@@ -33,7 +33,6 @@ const getTextColor = (color) => {
   };
   const result = network.run(entry);
 
-  console.log(result);
   return result.color > 0.5 ? 'white' : 'black';
 };
 

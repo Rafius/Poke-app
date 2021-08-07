@@ -1,7 +1,6 @@
 import React from 'react';
 import Loader from './Loader';
 import { renderWithState } from '../../utils/render-test-utils';
-import { screen } from '@testing-library/react';
 
 jest.mock('../../redux/pokemons/pokemons-selectors.ts', () => ({
   isLoadingSelector: jest.fn()

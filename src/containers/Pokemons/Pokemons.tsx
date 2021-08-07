@@ -12,7 +12,7 @@ const Pokemons = () => {
   if (isLoading) return <Loader isLoading={isLoading} />;
 
   return (
-    <PokemonsContainer data-testid="pokemon-container">
+    <PokemonsContainer data-testid="pokemons-container">
       <Filter />
       <PokemonsList>
         {pokemons.map(({ name, url }: Result, id: number) => (

@@ -7,7 +7,7 @@ import {
 } from './PokemonCard.styled';
 
 const getPokemonId = (url: string) =>
-  url.split('/')[6].padStart(3, '000');
+  url?.split('/')[6]?.padStart(3, '000');
 
 const PokemonCard = ({ name, url }: Result) => (
   <PokemonCardContainer
