@@ -1,32 +1,24 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  pokemonsFilterSelector,
-  cleanFilterPokemonsByName,
-  filterPokemonsByName
-} from '../../redux/pokemons';
 
+import useFilterHooks from './FilterHooks';
 import { FilterContainer, Input, CleanFilter } from './Filter.styled';
 
 const Filter = () => {
-  const dispatch = useDispatch();
-  const handleCleanFilter = () =>
-    dispatch(cleanFilterPokemonsByName());
-  const filterValue: string = useSelector(pokemonsFilterSelector);
-
-  const handleChange = (e: any) => {
-    const { value } = e.target;
-    dispatch(filterPokemonsByName(value));
-  };
+  const { handleCleanFilter, filterValue, handleChange } =
+    useFilterHooks();
 
   return (
-    <FilterContainer>
+    <FilterContainer data-testid="filter-container">
       <Input
         type="text"
+        data-testid="filter-input"
         onChange={handleChange}
         value={filterValue}
       />
-      <CleanFilter onClick={handleCleanFilter}>
+      <CleanFilter
+        onClick={handleCleanFilter}
+        data-testid="filter-button-clean"
+      >
         Clean Filter
       </CleanFilter>
     </FilterContainer>

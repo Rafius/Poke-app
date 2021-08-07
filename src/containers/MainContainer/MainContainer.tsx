@@ -5,7 +5,7 @@ import { Main } from './MainContainer.styled';
 
 const MainContainer = ({ children }: any) => {
   return (
-    <Main>
+    <Main data-testid="main-container">
       <Header />
       {children}
     </Main>

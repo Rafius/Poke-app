@@ -3,7 +3,7 @@ import { LoaderContainer, LoaderImage } from './Loader.styled';
 import loader from './loader.gif';
 
 type LoaderType = {
-  isLoading: boolean;
+  isLoading?: boolean;
 };
 
 const Loader = ({ isLoading }: LoaderType) => {

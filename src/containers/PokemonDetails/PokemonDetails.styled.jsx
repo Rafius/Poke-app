@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PokemonTypeDictionary = {
+export const PokemonTypeDictionary: any = {
   normal: '#A8A77A',
   fire: '#ee8130',
   water: '#6390f0',
