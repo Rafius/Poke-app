@@ -214,3 +214,9 @@ export interface Species {
   name: string;
   url: string;
 }
+
+export interface PokemonTypes {
+  type: string;
+  payload?: any;
+  id?: number;
+}

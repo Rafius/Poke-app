@@ -6,7 +6,6 @@ import { Button } from './BackButton.styled';
 const BackButton: FC = () => {
   const history = useHistory();
 
-  console.log(history.goBack());
   return (
     <Button
       onClick={() => history.goBack()}

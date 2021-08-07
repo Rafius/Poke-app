@@ -9,7 +9,6 @@ import {
 jest.mock('../../redux/pokemons/pokemons-selectors.ts', () => ({
   pokemonsDataSelector: jest.fn(),
   pokemonsFilterSelector: jest.fn(),
-
   pokemonsIsLoadingSelector: jest.fn()
 }));
 

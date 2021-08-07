@@ -19,13 +19,10 @@ import {
 
 function* getPokemons() {
   try {
-    const response: PokemonsList = yield call(
-      fetchApi,
-      'https://pokeapi.co/api/v2/pokemon?limit=898',
-      {
-        method: 'GET'
-      }
-    );
+    const response: PokemonsList = yield call(fetchApi, {
+      url: 'https://pokeapi.co/api/v2/pokemon?limit=898',
+      method: 'GET'
+    });
     yield put(getPokemonsSuccess(response));
   } catch (e) {
     yield put(getPokemonsFail(e));
@@ -34,13 +31,10 @@ function* getPokemons() {
 
 function* getPokemonById({ id }: Pokemon) {
   try {
-    const response: Pokemon = yield call(
-      fetchApi,
-      `https://pokeapi.co/api/v2/pokemon/${id}`,
-      {
-        method: 'GET'
-      }
-    );
+    const response: Pokemon = yield call(fetchApi, {
+      url: `https://pokeapi.co/api/v2/pokemon/${id}`,
+      method: 'GET'
+    });
     yield put(getPokemonByIdSuccess(response));
   } catch (e) {
     yield put(getPokemonByIdFail(e));
@@ -66,13 +60,10 @@ const parseEvolutionResponse = (chain: Chain) => {
 
 function* getPokemonEvolutionsById({ id }: PokemonEvolution) {
   try {
-    const response: PokemonEvolution = yield call(
-      fetchApi,
-      `https://pokeapi.co/api/v2/evolution-chain/${id}`,
-      {
-        method: 'GET'
-      }
-    );
+    const response: PokemonEvolution = yield call(fetchApi, {
+      url: `https://pokeapi.co/api/v2/evolution-chain/${id}`,
+      method: 'GET'
+    });
 
     const parsedResponse = parseEvolutionResponse(response.chain);
 
