@@ -5,11 +5,8 @@ import {
   getPokemonById,
   pokemonsCurrentPokemonSelector,
   pokemonsIsLoadingSelector,
-  getPokemonEvolutionsById,
   pokemonsEvolutionsSelector
 } from '../../redux/pokemons';
-import { PokemonTypeDictionary } from './PokemonDetails.styled';
-import getColor from '../../utils/get-color';
 import {
   Pokemon,
   PokemonEvolutions
@@ -22,7 +19,6 @@ const usePokemonDetails = () => {
 
   useEffect(() => {
     dispatch(getPokemonById(id));
-    dispatch(getPokemonEvolutionsById(id));
   }, [dispatch, id]);
 
   const pokemon: Pokemon = useSelector(
@@ -35,10 +31,6 @@ const usePokemonDetails = () => {
 
   const isLoading: boolean = useSelector(pokemonsIsLoadingSelector);
 
-  const textColor = (name: string) => {
-    if (name) return getColor(PokemonTypeDictionary[name]);
-  };
-
   const getFirstType: string | 0 =
     pokemon.types?.length && pokemon.types[0].type.name;
 
@@ -47,7 +39,6 @@ const usePokemonDetails = () => {
     isLoading,
     id,
     evolutions,
-    textColor,
     getFirstType
   };
 };

@@ -12,10 +12,6 @@ export const FILTER_POKEMONS_BY_NAME: string =
   'FILTER_POKEMONS_BY_NAME';
 export const CLEAN_FILTER_POKEMONS_BY_NAME: string =
   'CLEAN_FILTER_POKEMONS_BY_NAME';
-export const GET_POKEMON_EVOLUTIONS_BY_ID: string =
-  'GET_POKEMON_EVOLUTIONS_BY_ID';
-export const GET_POKEMON_EVOLUTIONS_BY_ID_SUCCESS: string =
-  'GET_POKEMON_EVOLUTIONS_BY_ID_SUCCESS';
 
 export const getPokemons = () => ({
   type: GET_POKEMONS
@@ -55,14 +51,4 @@ export const filterPokemonsByName = (payload: any): PokemonTypes => ({
 
 export const cleanFilterPokemonsByName = () => ({
   type: CLEAN_FILTER_POKEMONS_BY_NAME
-});
-
-export const getPokemonEvolutionsById = (id: number) => ({
-  type: GET_POKEMON_EVOLUTIONS_BY_ID,
-  id
-});
-
-export const getPokemonEvolutionsByIdSuccess = (payload: any) => ({
-  type: GET_POKEMON_EVOLUTIONS_BY_ID_SUCCESS,
-  payload
 });

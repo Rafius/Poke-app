@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 
 import configureStore from './redux/store';
@@ -7,11 +7,11 @@ import Routes from './routes';
 
 const store = configureStore();
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Routes />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+const container: any = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
+  <Provider store={store}>
+    <Routes />
+  </Provider>
 );

@@ -40,7 +40,7 @@ export const PokemonDetailsBox = styled.div`
   margin-top: 20px;
 `;
 
-export const PokemonDetailsName = styled.div`
+export const PokemonDetailsName: any = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,9 +48,9 @@ export const PokemonDetailsName = styled.div`
   height: 50px;
   width: 100%;
   border-bottom: 1px solid grey;
-  background-color: ${({ backgroundColor }) =>
+  background-color: ${({ backgroundColor }: any) =>
     PokemonTypeDictionary[backgroundColor]};
-  color: ${({ color }) => color};
+  color: grey;
 `;
 export const PokemonDetailsDescription = styled.div`
   display: flex;
@@ -62,10 +62,11 @@ export const PokemonDetailsTypesContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-export const PokemonDetailsType = styled.div`
-  background-color: ${({ backgroundColor }) =>
+
+export const PokemonDetailsType: any = styled.div`
+  background-color: ${({ backgroundColor }: any) =>
     PokemonTypeDictionary[backgroundColor]};
-  color: ${({ color }) => color};
+  color: grey;
   border-radius: 3px;
   padding: 10px;
   border-radius: 5px;

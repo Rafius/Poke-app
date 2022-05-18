@@ -5,23 +5,27 @@ import { renderWithState } from '../../utils/render-test-utils';
 
 describe('Filter component', () => {
   it('Should render the filter', () => {
-    const { getByTestId } = renderWithState(<Filter />);
-    expect(getByTestId('filter-container')).toBeDefined();
+    renderWithState(<Filter />);
+    expect(screen.getByTestId('filter-container')).toBeDefined();
   });
 
   it('Should clean the filter', () => {
-    const { getByTestId } = renderWithState(<Filter />);
-    const button = getByTestId('filter-button-clean');
-    const input = getByTestId('filter-input');
+    renderWithState(<Filter />);
+    const button = screen.getByTestId('filter-button-clean');
+    const input = screen.getByTestId(
+      'filter-input'
+    ) as HTMLInputElement;
 
     fireEvent.click(button);
     expect(input.value).toBe('');
   });
 
   it('Should update the filter text', () => {
-    const { getByTestId } = renderWithState(<Filter />);
+    renderWithState(<Filter />);
 
-    const input = getByTestId('filter-input');
+    const input = screen.getByTestId(
+      'filter-input'
+    ) as HTMLInputElement;
 
     fireEvent.change(input, { target: { value: '123' } });
     expect(input.value).toBe('123');

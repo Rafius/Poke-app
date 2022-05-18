@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from './BackButton.styled';
 
 const BackButton: FC = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <Button
-      onClick={() => history.goBack()}
+      onClick={() => navigate(-1)}
       data-testid="back-button-container"
     >
       Back

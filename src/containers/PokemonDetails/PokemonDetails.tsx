@@ -26,7 +26,6 @@ const PokemonDetails = () => {
     sprites,
     types,
     isLoading,
-    textColor,
     getFirstType
   } = usePokemonDetails();
 
@@ -36,10 +35,7 @@ const PokemonDetails = () => {
     <PokemonDetailsContainer>
       <PokemonDetailsButtons id={id} />
       <PokemonDetailsBox data-testid="pokemon-details-container">
-        <PokemonDetailsName
-          backgroundColor={getFirstType}
-          color={textColor(getFirstType)}
-        >
+        <PokemonDetailsName backgroundColor={getFirstType}>
           {name?.toUpperCase()}
         </PokemonDetailsName>
         <PokemonDetailsDescription>
@@ -67,7 +63,6 @@ const PokemonDetails = () => {
             {types?.map(({ type, slot }: any) => (
               <PokemonDetailsType
                 backgroundColor={type.name}
-                color={textColor(type.name)}
                 key={slot}
               >
                 {type.name}

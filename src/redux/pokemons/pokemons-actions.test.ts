@@ -6,8 +6,6 @@ import {
   getPokemonById,
   getPokemonByIdFail,
   getPokemonByIdSuccess,
-  getPokemonEvolutionsById,
-  getPokemonEvolutionsByIdSuccess,
   getPokemons,
   getPokemonsFail,
   getPokemonsSuccess,
@@ -16,9 +14,7 @@ import {
   GET_POKEMONS_SUCCESS,
   GET_POKEMON_BY_ID,
   GET_POKEMON_BY_ID_FAIL,
-  GET_POKEMON_BY_ID_SUCCESS,
-  GET_POKEMON_EVOLUTIONS_BY_ID,
-  GET_POKEMON_EVOLUTIONS_BY_ID_SUCCESS
+  GET_POKEMON_BY_ID_SUCCESS
 } from '.';
 
 describe('Pokemons actions', () => {
@@ -71,24 +67,6 @@ describe('Pokemons actions', () => {
   it('cleanFilterPokemonsByName action', () => {
     expect(cleanFilterPokemonsByName()).toEqual({
       type: CLEAN_FILTER_POKEMONS_BY_NAME
-    });
-  });
-
-  it('getPokemonEvolutionsById action', () => {
-    expect(getPokemonEvolutionsById(1)).toEqual({
-      type: GET_POKEMON_EVOLUTIONS_BY_ID,
-      id: 1
-    });
-  });
-
-  it('getPokemonEvolutionsByIdSuccess action', () => {
-    expect(
-      getPokemonEvolutionsByIdSuccess(
-        'get pokemon evolutions id success'
-      )
-    ).toEqual({
-      type: GET_POKEMON_EVOLUTIONS_BY_ID_SUCCESS,
-      payload: 'get pokemon evolutions id success'
     });
   });
 });

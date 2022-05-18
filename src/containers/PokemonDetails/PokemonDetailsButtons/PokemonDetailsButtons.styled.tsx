@@ -14,11 +14,11 @@ const commonButton = styled(Link)`
   text-decoration: none;
   color: black;
   padding: 10px;
-  pointer-events: ${({ disabled }) => disabled && 'none'};
-  background-color: ${({ disabled }) => disabled && '#a4a4a4'};
+  pointer-events: ${({ disabled }: any) => disabled && 'none'};
+  background-color: ${({ disabled }: any) => disabled && '#a4a4a4'};
   width: 30px;
   text-align: center;
 `;
 
-export const PreviousPokemon = styled(commonButton)``;
-export const NextPokemon = styled(commonButton)``;
+export const PreviousPokemon: any = styled(commonButton)``;
+export const NextPokemon: any = styled(commonButton)``;

@@ -1,24 +1,27 @@
 import React, { FC } from 'react';
 import {
   BrowserRouter,
-  Switch,
-  Redirect,
-  Route
+  Routes,
+  Route,
+  Navigate
 } from 'react-router-dom';
-import routesConfig, { routeModel } from './routes-config';
 import MainContainer from '../containers/MainContainer';
+import Pokemons from '../containers/Pokemons';
+import PokemonDetails from '../containers/PokemonDetails';
 
-const Routes: FC = () => (
+const Router: FC = () => (
   <BrowserRouter>
     <MainContainer>
-      <Switch>
-        {routesConfig.map((route: routeModel) => (
-          <Route exact {...route} key={route.key} />
-        ))}
-        <Redirect to="/" />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Pokemons />} />
+        <Route
+          path="/pokemon-details/:id"
+          element={<PokemonDetails />}
+        />
+        <Route element={<Navigate replace to="/" />} />
+      </Routes>
     </MainContainer>
   </BrowserRouter>
 );
 
-export default Routes;
+export default Router;

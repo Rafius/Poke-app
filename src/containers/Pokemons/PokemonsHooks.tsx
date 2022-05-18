@@ -6,12 +6,9 @@ import {
   pokemonsFilterSelector,
   pokemonsIsLoadingSelector
 } from '../../redux/pokemons';
-import { PokemonsReqPayload } from '../../redux/pokemons/pokemons-types';
 
 const usePokemons = () => {
-  const pokemons: PokemonsReqPayload[] = useSelector(
-    pokemonsDataSelector
-  );
+  const pokemons: any[] = useSelector(pokemonsDataSelector);
 
   const filter: string = useSelector(pokemonsFilterSelector);
 
