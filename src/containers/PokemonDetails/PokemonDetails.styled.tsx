@@ -50,7 +50,7 @@ export const PokemonDetailsName: any = styled.div`
   border-bottom: 1px solid grey;
   background-color: ${({ backgroundColor }: any) =>
     PokemonTypeDictionary[backgroundColor]};
-  color: grey;
+  color: white;
 `;
 export const PokemonDetailsDescription = styled.div`
   display: flex;
@@ -66,7 +66,7 @@ export const PokemonDetailsTypesContainer = styled.div`
 export const PokemonDetailsType: any = styled.div`
   background-color: ${({ backgroundColor }: any) =>
     PokemonTypeDictionary[backgroundColor]};
-  color: grey;
+  color: white;
   border-radius: 3px;
   padding: 10px;
   border-radius: 5px;
